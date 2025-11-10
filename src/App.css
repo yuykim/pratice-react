@@ -13,7 +13,7 @@
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation:
-      App-logo-spin infinite 0.1s linear;    /* 회전 */
+      App-logo-spin infinite 0.07s linear;    /* 회전 */
       /* App-logo-move infinite 8s ease-in-out;  랜덤처럼 보이는 이동 */
   }
 }
