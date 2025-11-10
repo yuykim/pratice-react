@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 import logo from './logo.svg';
-import dog from './dog.png';
-import ball from './ball.png'
 import './App.css';
 
 function App() {
