@@ -9,14 +9,36 @@
   transition: transform 0.5s ease;  /* 부드러운 이동 */
 }
 
-/* 회전은 그대로 유지 */
+/* 회전은 그대로 유지 + 이동도 추가 */
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-combined 0.1s infinite linear;
+    animation:
+      App-logo-spin infinite 0.1s linear;    /* 회전 */
+      /* App-logo-move infinite 8s ease-in-out;  랜덤처럼 보이는 이동 */
   }
 }
 
-/* 회전 + 이동을 동시에 처리 */
+/* 회전 애니메이션 */
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 상하좌우로 부드럽게 이동하는 애니메이션 */
+@keyframes App-logo-move {
+  0%   { transform: translate(0, 0); }
+  20%  { transform: translate(200px, -150px); }
+  40%  { transform: translate(-250px, 180px); }
+  60%  { transform: translate(300px, 220px); }
+  80%  { transform: translate(-180px, -200px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* (참고: App-logo-combined는 백업용으로 남겨둠)
 @keyframes App-logo-combined {
   0%   { transform: translate(0, 0) rotate(0deg); }
   20%  { transform: translate(200px, -200px) rotate(360deg); }
@@ -25,7 +47,7 @@
   80%  { transform: translate(-200px, -250px) rotate(1440deg); }
   100% { transform: translate(0, 0) rotate(1800deg); }
 }
-
+*/
 
 .App-header {
   background-color: #282c34;
@@ -41,3 +63,12 @@
 .App-link {
   color: #61dafb;
 }
+
+/* 마우스 이동용 래퍼 */
+.App-logo-wrapper {
+  position: relative;
+  will-change: transform;
+  transition: transform 0.2s ease-out; /* 따라오는 느낌 부드럽게 */
+}
+
+
